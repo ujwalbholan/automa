@@ -1,15 +1,17 @@
 import { authMiddleware } from '@clerk/nextjs';
 
 export default authMiddleware({
-  // These routes are publicly accessible (no login required)
   publicRoutes: [
     '/',
+    '/about',
+    '/contact',
+    '/pricing',
+    '/sign-in', 
     '/api/clerk-webhook',
     '/api/drive-activity/notification',
     '/api/payment/success',
   ],
 
-  // Clerk ignores these routes (usually for OAuth callbacks or system actions)
   ignoredRoutes: [
     '/api/auth/callback/discord',
     '/api/auth/callback/notion',

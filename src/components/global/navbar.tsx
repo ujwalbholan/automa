@@ -3,14 +3,6 @@ import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { ModeToggle } from "@/components/global/mode-toggle";
 import { getUser } from "@/lib/getUser";
-// import { Button } from "@/components/ui/button";
-// import {
-//   Popover,
-//   PopoverContent,
-//   PopoverTrigger,
-// } from "@/components/ui/popover";
-
-// type Props = object;
 
 const Navbar = async () => {
   const isLoggedIn = await getUser();
@@ -42,33 +34,26 @@ const Navbar = async () => {
         </ul>
       </nav>
       <aside className="flex items-center gap-4">
-        <ModeToggle />
-        {/* <Popover>
-          <PopoverTrigger asChild>
-            <Button variant={"outline"}>Get Started</Button>
-          </PopoverTrigger>
-          <PopoverContent> */}
-            <Link
-              href={ isLoggedIn ? "/dashboard" : "/sign-in"}
-              className="relative inline-flex h-10 overflow-hidden rounded-full
+        {/* <ModeToggle /> */}
+
+        <Link
+          href={isLoggedIn ? "/dashboard" : "/sign-in"}
+          className="relative inline-flex h-10 overflow-hidden rounded-full
            p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400
             focus:ring-offset-2 focus:ring-offset-slate-50"
-            >
-              <span
-                className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite]
+        >
+          <span
+            className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite]
            bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-              />
-              <span
-                className="inline-flex h-full w-full cursor-pointer items-center 
+          />
+          <span
+            className="inline-flex h-full w-full cursor-pointer items-center 
           justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium
            text-white backdrop-blur-3xl"
-              >
-                {isLoggedIn ? "Dashboard" : "Get Started"}
-              </span>
-            </Link>
-          {/* </PopoverContent>
-        </Popover> */}
-        {/* user ? <UserButton afterSignOutUrl="/" /> : null */}
+          >
+            {isLoggedIn ? "Dashboard" : "Get Started"}
+          </span>
+        </Link>
         <MenuIcon className="md:hidden" />
       </aside>
     </header>
