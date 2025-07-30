@@ -34,6 +34,8 @@ export type ConnectionProviderProps = {
     content: string
   }
   setSlackNode: React.Dispatch<React.SetStateAction<any>>
+
+  
   setWorkFlowTemplate: React.Dispatch<
     React.SetStateAction<{
       discord?: string

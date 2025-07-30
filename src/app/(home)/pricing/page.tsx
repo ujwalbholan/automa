@@ -3,7 +3,7 @@ import React from "react";
 const Price = () => {
   return (
     <div>
-      <section className="py-24 bg-neutral-950 relative">
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-10 animate-fade-in-up">
             Simple, Transparent Pricing

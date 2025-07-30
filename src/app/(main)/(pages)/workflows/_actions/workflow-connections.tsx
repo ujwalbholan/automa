@@ -63,11 +63,13 @@ export const onCreateNodeTemplate = async (
     }
   }
   if (type === "Slack") {
+    console.log(channels)
     const response = await db.workflows.update({
       where: {
         id: workflowId,
       },
       data: {
+        slackChannels: channels ? channels.map((channel) => channel.value) : [],
         slackTemplate: content,
         slackAccessToken: accessToken,
       },

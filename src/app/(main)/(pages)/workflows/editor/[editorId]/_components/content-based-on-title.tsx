@@ -92,7 +92,7 @@ const ContentBasedOnTitle = ({
   return (
     <AccordionContent>
       <Card>
-        {title === 'Discord' && (
+        {title === 'Discord' &&(
           <CardHeader>
             <CardTitle>{nodeConnectionType.webhookName}</CardTitle>
             <CardDescription>{nodeConnectionType.guildName}</CardDescription>
@@ -100,7 +100,7 @@ const ContentBasedOnTitle = ({
         )}
         <div className="flex flex-col gap-3 px-6 py-3 pb-20">
 
-          <p>{title === 'Notion' ? 'Values to be stored' : 'Message'}</p>
+          <p> {title === 'Notion' ? 'Values to be stored' : 'Message'}</p>
           <Input
             type="text"
             value={nodeConnectionType.content}

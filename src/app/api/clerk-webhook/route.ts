@@ -6,12 +6,19 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
+
     const { id, email_addresses, first_name, image_url } = body?.data || {};
 
+    console.log('Received data:', { id, email_addresses, first_name, image_url });
+
     const email = email_addresses?.[0]?.email_address;
+    console.log('Extracted email:', email);
+    
     if (!id || !email) {
       return new NextResponse('Missing required user fields', { status: 400 });
     }
+
+    console.log('Syncing user with ID:', id);
 
     await db.user.upsert({
       where: { clerkId: id },
@@ -27,6 +34,8 @@ export async function POST(req: Request) {
         profileImage: image_url || '',
       },
     });
+
+    console.log('User synced with DB:', data);
 
     return new NextResponse('User synced with DB', { status: 200 });
   } catch (error) {
