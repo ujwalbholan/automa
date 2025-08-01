@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
     const email = email_addresses?.[0]?.email_address;
     console.log('Extracted email:', email);
-    
+
     if (!id || !email) {
       return new NextResponse('Missing required user fields', { status: 400 });
     }
@@ -34,8 +34,6 @@ export async function POST(req: Request) {
         profileImage: image_url || '',
       },
     });
-
-    console.log('User synced with DB:', data);
 
     return new NextResponse('User synced with DB', { status: 200 });
   } catch (error) {
